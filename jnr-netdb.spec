@@ -4,9 +4,9 @@
 
 Name:    jnr-netdb
 Version: 1.1.1
-Release: 2.0%{?dist}
+Release: 5.1
 Summary: Network services database access for java
-
+Group: Development/Java
 
 License: ASL 2.0
 URL:     http://github.com/jnr/%{name}/
@@ -50,30 +50,16 @@ find ./ -name '*.jar' -exec rm -f '{}' \;
 find ./ -name '*.class' -exec rm -f '{}' \; 
 
 %build
-mvn-rpmbuild install javadoc:aggregate
+%mvn_build
 
 %install
-mkdir -p $RPM_BUILD_ROOT%{_javadir}
-cp -p target/%{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
+%mvn_install
 
-mkdir -p $RPM_BUILD_ROOT%{_javadocdir}/%{name}
-cp -rp target/site/apidocs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}
-
-install -d -m 755 $RPM_BUILD_ROOT%{_mavenpomdir}
-install -pm 644 pom.xml  \
-        $RPM_BUILD_ROOT%{_mavenpomdir}/JPP-%{name}.pom
-
-%add_maven_depmap JPP-%{name}.pom %{name}.jar
-
-%files
+%files -f .mfiles
 %doc LICENSE README
-%{_javadir}/*
-%{_mavendepmapfragdir}/%{name}
-%{_mavenpomdir}/*
 
-%files javadoc
+%files javadoc -f .mfiles-javadoc
 %doc LICENSE
-%{_javadocdir}/%{name}
 
 %changelog
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.1-2
