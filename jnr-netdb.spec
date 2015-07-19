@@ -4,7 +4,7 @@
 
 Name:    jnr-netdb
 Version: 1.1.1
-Release: 5.1
+Release: 5.2
 Summary: Network services database access for java
 Group: Development/Java
 
