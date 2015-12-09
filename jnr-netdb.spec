@@ -4,7 +4,7 @@
 
 Name:    jnr-netdb
 Version: 1.1.1
-Release: 5.3
+Release: 5.4
 Summary: Network services database access for java
 Group: Development/Java
 
@@ -16,7 +16,7 @@ BuildArch: noarch
 BuildRequires: java-devel
 BuildRequires: jpackage-utils
 BuildRequires: jnr-ffi
-BuildRequires: junit4
+BuildRequires: junit
 BuildRequires: jffi
 
 BuildRequires:  maven-local
