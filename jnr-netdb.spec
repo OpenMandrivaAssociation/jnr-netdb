@@ -10,6 +10,9 @@ License: ASL 2.0
 URL:     https://github.com/jnr/%{name}/
 Source0: https://github.com/jnr/%{name}/archive/refs/tags/jnr-netdb-%{version}.tar.gz
 BuildArch: noarch
+# Literal, so the first rpmbuild -bs records them before sysjar is installed.
+BuildRequires:	maven
+BuildRequires:	java-current-devel
 BuildSystem:	maven
 
 BuildRequires: jnr-ffi
