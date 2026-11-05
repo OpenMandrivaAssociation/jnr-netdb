@@ -14,9 +14,10 @@ BuildArch: noarch
 BuildRequires:	maven
 BuildRequires:	java-current-devel
 BuildRequires:	sonatype-oss-parent
+BuildRequires:	jnr-parent
+BuildRequires:	jnr-ffi
 BuildSystem:	maven
 
-BuildRequires: jnr-ffi
 BuildRequires: junit
 
 Requires: java
